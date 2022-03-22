@@ -7,14 +7,14 @@ const jsonParser = express.json();
   
 const mongoClient = new MongoClient("mongodb+srv://polykate:polykate@cluster0.usiiv.mongodb.net/booksdb?retryWrites=true&w=majority");
  
-app.use(express.static(__dirname + "/public"));
+//app.use(express.static(__dirname + "/public"));
  
  
 (async () => {
      try {
         await mongoClient.connect();
         app.locals.collection = mongoClient.db("booksdb").collection("books");
-        await app.listen(3000);
+        await app.listen("https://poly-kate.github.io/");
         console.log("Сервер ожидает подключения...");
     }catch(err) {
         return console.log(err);
